@@ -16,4 +16,5 @@ app.post('/data', function(req, res){
     "source": "DuckDuckGo"
   });
 });
-https.createServer(options, app).listen(443);
+app.set('port', (process.env.PORT || 5000));
+https.createServer(options, app).listen(app.get('port'));
