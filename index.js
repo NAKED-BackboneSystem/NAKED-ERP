@@ -6,7 +6,7 @@ var options = {
   key: fs.readFileSync('crypto/server.key'),
   cert: fs.readFileSync('crypto/server.crt')
 };
-app.post('/', function(req, res){
+app.post('/data', function(req, res){
   console.log('JSON:'+req);
   res.json({
     "speech": "Barack Hussein Obama II is the 44th and current President of the United States.",
