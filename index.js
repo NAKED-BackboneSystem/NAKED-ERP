@@ -6,4 +6,7 @@ const options = {
   key: fs.readFileSync('crypto/server.key'),
   cert: fs.readFileSync('crypto/server.crt')
 };
+app.post('/', function(req, res){
+  console.log(req);
+});
 https.createServer(options, app).listen(443);
