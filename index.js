@@ -17,4 +17,6 @@ app.post('/data', function(req, res){
   // });
 });
 app.set('port', (process.env.PORT || 5000));
-https.createServer(options, app).listen(app.get('port'));
+https.createServer(options, app).listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
