@@ -6,6 +6,9 @@ var options = {
   key: fs.readFileSync('crypto/server.key'),
   cert: fs.readFileSync('crypto/server.crt')
 };
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 app.post('/data', function(req, res){
   console.log('JSON:');
   // res.json({
