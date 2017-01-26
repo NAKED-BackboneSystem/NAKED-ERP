@@ -23,18 +23,20 @@ app.get('/', function(req, res){
 });
 // POST to /data
 app.post('/data', function(req, res){
+  var reply_json = {
+    "speech": "This is the Reply Text for API.AI.",
+    "displayText": "This is the Reply Text for API.AI.",
+    "data": {
+      "slack": {
+        "text": "This is the Reply Text for Slack."
+      }
+    },
+    "contextOut": [],
+    "source": "Database Server"
+  };
+  reply_json["data"]["slack"]["text"] = "This is the Reply Text for API.AI.";
   res.json(
-    {
-      "speech": "This is the Reply Text for API.AI.",
-      "displayText": "This is the Reply Text for API.AI.",
-      "data": {
-        "slack": {
-          "text": "This is the Reply Text for Slack."
-        }
-      },
-      "contextOut": [],
-      "source": "Database Server"
-    }
+    reply_json
   );
 });
 
