@@ -2,7 +2,8 @@
 
 // Load Modules
 // Express (Node.js Web Application Framework)
-var app = require('express')();
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var upload = require('multer')();
 
