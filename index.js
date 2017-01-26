@@ -23,9 +23,10 @@ app.get('/', function(req, res){
 });
 // POST to /data
 app.post('/data', function(req, res){
-  var speech = "This is the Reply Text for API.AI.";
-  var displayText = "This is the Reply Text for API.AI.";
-  var text = "This is the Reply Text for Slack.";
+  var intent = req.body["result"]["metadata"]["intentName"];
+  var speech = intent;
+  var displayText = intent;
+  var text = intent;
   var reply_json = {
     "speech": speech,
     "displayText": displayText,
