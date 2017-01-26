@@ -27,7 +27,7 @@ app.get('/', function(req, res){
   res.render('pages/index');
 });
 // POST to /data
-app.post('/data', upload.array(), function (req, res){
+app.post('/data', upload.array(), function (req, res, next){
   var intent = req.body["result"]["metadata"]["intentName"];
   var speech = intent;
   var displayText = intent;
