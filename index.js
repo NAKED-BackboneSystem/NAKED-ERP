@@ -32,7 +32,7 @@ app.post('/data', upload.array(), function (req, res){
   var speech = intent;
   var displayText = intent;
   var text = intent;
-  var reply_json = {
+  res.json({
     "speech": speech,
     "displayText": displayText,
     "data": {
@@ -42,8 +42,7 @@ app.post('/data', upload.array(), function (req, res){
     },
     "contextOut": [],
     "source": "Database Server"
-  };
-  res.json(reply_json);
+  });
 });
 
 // Start Servers
