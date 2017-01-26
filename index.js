@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 // POST to /data
 app.post('/data', function(req, res){
   console.log(req);
-  var intent = "";
+  var intent = req.body["result"]["metadata"]["intentName"];
   var speech = intent;
   var displayText = intent;
   var text = intent;
