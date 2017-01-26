@@ -2,8 +2,12 @@
 
 // Load Modules
 // Express (Node.js Web Application Framework)
-var express = require('express');
-var app = express();
+var app = require('express')();
+var bodyParser = require('body-parser');
+var upload = require('multer')();
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Set Listen Ports
 app.set('port', (process.env.PORT || 5000));
@@ -22,7 +26,7 @@ app.get('/', function(req, res){
   res.render('pages/index');
 });
 // POST to /data
-app.post('/data', function(req, res){
+app.post('/data', upload.array(), function (req, res, next){
   console.log(req);
   var intent = req.body["result"]["metadata"]["intentName"];
   var speech = intent;
