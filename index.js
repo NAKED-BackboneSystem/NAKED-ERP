@@ -23,7 +23,7 @@ app.get('/', function(req, res){
 });
 // POST to /data
 app.post('/data', function(req, res){
-  console.log(req.body);
+  console.log(req);
   var intent = "";
   var speech = intent;
   var displayText = intent;
