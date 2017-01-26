@@ -28,16 +28,13 @@ app.get('/', function(req, res){
 });
 // POST to /data
 app.post('/data', upload.array(), function (req, res, next){
-  var intent = req.body["result"]["metadata"]["intentName"];
-  var speech = intent;
-  var displayText = intent;
-  var text = intent;
+  var userIntent = req.body["result"]["metadata"]["intentName"];
   res.json({
-    "speech": speech,
-    "displayText": displayText,
+    "speech": userIntent,
+    "displayText": userIntent,
     "data": {
       "slack": {
-        "text": text
+        "text": userIntent
       }
     },
     "contextOut": [],
