@@ -9,8 +9,10 @@ server.use(restify.acceptParser(server.acceptable));
 server.use(restify.jsonp());
 server.use(restify.bodyParser());
 
-// Request Body Parser
+// HTTP Request Body Parser
 var bodyParser = require('body-parser');
+
+// Multer (Node.js middleware for handling `multipart/form-data`.)
 var upload = require('multer')();
 
 // Mongoose (The Driver for MongoDB)
@@ -18,7 +20,7 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 var EquipmentsSchema = new Schema({
   name:  String,
-  condition: String
+  project: String
 });
 mongoose.model('Equipments', EquipmentsSchema);
 var Equipments = mongoose.model('Equipments');
@@ -30,7 +32,7 @@ mongoose.connect('mongodb://naked:naked-0lizard@ds131099.mlab.com:31099/heroku_s
 server.post('/data', upload.array(), function (req, res, next){
   var userIntent = req.body["result"]["metadata"]["intentName"];
   var replyMessage = "The Request Equipments has not been found."
-  Equipments.find({ name: userIntent }, function(err, docs){
+  Equipments.find({ project: userIntent }, function(err, docs){
     replyMessage = "The Request Equipments has been found."
   });
   res.json({
@@ -48,6 +50,8 @@ server.post('/data', upload.array(), function (req, res, next){
 });
 
 // Start Servers
-server.listen((process.env.PORT || 5000), function(){
-  console.log('Node app is running on port', (process.env.PORT || 5000));
+
+//Listen "process.env.PORT" or "5000"
+server.listen(process.env.PORT || 5000, function(){
+  console.log('Node app is running on port', process.env.PORT || 5000);
 });
