@@ -10,9 +10,6 @@ var upload = require('multer')();
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// Set Listen Ports
-app.set('port', (process.env.PORT || 5000));
-
 // Route HTTP Requests
 // GET from /
 app.get('/', function(req, res){
@@ -32,9 +29,10 @@ app.post('/data', upload.array(), function (req, res, next){
     "contextOut": [],
     "source": "Database Server"
   });
+  return next();
 });
 
 // Start Servers
-app.listen(app.get('port'), function(){
+app.listen((process.env.PORT || 5000), function(){
   console.log('Node app is running on port', app.get('port'));
 });
