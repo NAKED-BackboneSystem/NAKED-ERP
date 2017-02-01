@@ -2,8 +2,8 @@
 
 // Load Modules
 // Express (Node.js Web Application Framework)
-var express = require('express');
-var app = express();
+var restify = require('restify');
+var app = restify.createServer();
 var bodyParser = require('body-parser');
 var upload = require('multer')();
 
@@ -12,14 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 // Set Listen Ports
 app.set('port', (process.env.PORT || 5000));
-
-// Set Assets Directory
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-// Set Template Engines
-app.set('view engine', 'ejs');
 
 // Route HTTP Requests
 // GET from /
@@ -40,6 +32,7 @@ app.post('/data', upload.array(), function (req, res, next){
     "contextOut": [],
     "source": "Database Server"
   });
+  return next();
 });
 
 // Start Servers

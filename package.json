@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "NAKED-ERP",
+  "version": "0.0.1",
+  "description": "Enterprise Resource Planning (ERP) System for NAKED",
   "engines": {
     "node": "5.9.1"
   },
@@ -11,18 +11,18 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3",
+    "restify": "4.3.0",
     "body-parser": "1.16.0",
     "multer": "1.3.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/NAKED-BackboneSystem/NAKED-ERP"
   },
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "restify"
   ],
   "license": "MIT"
 }

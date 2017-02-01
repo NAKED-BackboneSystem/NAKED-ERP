@@ -1,7 +1,7 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "name": "NAKED-ERP",
+  "description": "Enterprise Resource Planning (ERP) System for NAKED",
+  "repository": "https://github.com/NAKED-BackboneSystem/NAKED-ERP",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static"],
   "image": "heroku/nodejs"
