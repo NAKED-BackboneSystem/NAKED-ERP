@@ -22,7 +22,7 @@ var EquipmentsSchema = new Schema({
 });
 mongoose.model('Equipments', EquipmentsSchema);
 var Equipments = mongoose.model('Equipments');
-mongoose.connect('mongodb://heroku_sxvdphx7:naked-0lizard@ds131099.mlab.com:31099/heroku_sxvdphx7');
+mongoose.connect('mongodb://naked:naked-0lizard@ds131099.mlab.com:31099/heroku_sxvdphx7');
 
 // Route HTTP Requests
 
