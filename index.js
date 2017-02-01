@@ -26,14 +26,11 @@ mongoose.connect('mongodb://naked:naked-0lizard@ds131099.mlab.com:31099/heroku_s
 
 // Route HTTP Requests
 
-// GET from /
-server.get('/', function(req, res){
-});
 // POST to /data
 server.post('/data', upload.array(), function (req, res, next){
   var userIntent = req.body["result"]["metadata"]["intentName"];
   var replyMessage = "The Request Equipments has not been found."
-  Equipments.find({}, function(err, docs){
+  Equipments.find({ name: userIntent }, function(err, docs){
     replyMessage = "The Request Equipments has been found."
   });
   res.json({
