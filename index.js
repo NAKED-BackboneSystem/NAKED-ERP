@@ -32,7 +32,6 @@ app.post('/data', upload.array(), function (req, res, next){
     "contextOut": [],
     "source": "Database Server"
   });
-  return next();
 });
 
 // Start Servers
